@@ -1,0 +1,6 @@
+.home-wrapper {
+  min-height: 100vh;
+}
+:host /deep/ ngb-accordion .card + .card {
+  margin-top: .25rem;
+}

@@ -1,0 +1,124 @@
+{
+  "common": {
+    "projectname": "Birofit",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "cancel": "Cancel",
+    "save": "Save",
+    "min": "Min"
+  },
+  "navbar": {
+    "main": "Main",
+    "settings": "Settings",
+    "reports": "Reports",
+    "games": "Games",
+    "billing": "Billing"
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  },
+  "pages": {
+    "main": {
+      "welcome": "Welcome back,",
+      "filter": "Filter rows...",
+      "earned": "Earned this month",
+      "workinghours": "Working Hours",
+      "spent": "Spent this month",
+      "tasks": "Tasks",
+      "completed": "Completed this month",
+      "projects": "Projects",
+      "done": "Done this month",
+      "allopengames": "All Open Games"
+    },
+    "settings": {
+      "header": "Account settings",
+      "tabs": {
+        "general": "General",
+        "password": "Change password"
+      },
+      "buttons": {
+        "upload": "Upload new photo",
+        "changepassword": "Change password",
+        "reset": "Reset",
+        "save": "Save changes",
+        "cancel": "Cancel",
+        "change": "Change new avatar"
+      },
+      "labels": {
+        "allowed": "Allowed JPG, GIF or PNG. Max size of 800K",
+        "email": "Email",
+        "username": "Username",
+        "name": "Name",
+        "currentpassword": "Current password",
+        "newpassword": "New password",
+        "repassword": "Repeat new password"
+      },
+      "modalavatartitle": "New avatar"
+    },
+    "reports": {
+      "header": "Reports",
+      "tabs": {
+        "games": "My Games",
+        "adds": "Add Funds History",
+        "refunds": "Payouts History"
+      }
+    },
+    "game": {
+      "header": "Game",
+      "createdby": "Created by",
+      "status": "Status",
+      "created": "Created at",
+      "started": "Started at",
+      "finished": "Finished at",
+      "players": "Players",
+      "information": "Information",
+      "want": "Want count",
+      "cerrent": "Current count",
+      "need": "Need count",
+      "bank": "Bank",
+      "fee": "Fee",
+      "chance": "Chance",
+      "share": "Share with friends on social networks",
+      "labels": {
+        "invite": "Invite a friend, just send him a link to this game."
+      }
+    },
+    "games": {
+      "header": "Games List",
+      "buttons": {
+        "play": "PLAY",
+        "show": "SHOW"
+      }
+    },
+    "billing": {
+      "header": "Billing Page",
+      "widgets": {
+        "total": "Total Balance",
+        "available": "Available Balance",
+        "hold": "Hold Balance",
+        "payouts": "Payouts Count"
+      },
+      "tabs": {
+        "add": "Add Funds",
+        "request": "Request Payout"
+      },
+      "labels": {
+        "add": "Send ether to contract address",
+        "request": "Send request for refund"
+      },
+      "buttons": {
+        "copy": "Copy address to clipboard",
+        "request": "Send request"
+      },
+      "addhowtotitle": "How To",
+      "addhowtotext": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto aspernatur assumenda at beatae cumque deserunt, distinctio ex facere id, incidunt iure magni minima molestias nemo nulla possimus quam quia quidem, quos recusandae repellendus reprehenderit sapiente sed tempora veritatis voluptatum. Accusamus distinctio inventore magni modi quis, recusandae repudiandae sunt.",
+      "requesthowtotitle": "How To",
+      "requesthowtotext": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto aspernatur assumenda at beatae cumque deserunt, distinctio ex facere id, incidunt iure magni minima molestias nemo nulla possimus quam quia quidem, quos recusandae repellendus reprehenderit sapiente sed tempora veritatis voluptatum. Accusamus distinctio inventore magni modi quis, recusandae repudiandae sunt."
+    },
+    "home": {
+      "description": "First trust lottery based on Ethereum smart-contracts.",
+      "tryit": "Try It"
+    }
+  }
+}

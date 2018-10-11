@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg align-items-lg-center container-p-x" [ngClass]="currentBg()">
+
+    <!-- Brand -->
+    <a routerLink="/" class="navbar-brand"><img src="assets/img/Logo.png" title="Birofit" alt="Birofit"> </a>
+
+    <!-- Sidenav toggle -->
+    <div class="navbar-nav align-items-lg-center mr-auto mr-lg-4" *ngIf="sidenavToggle">
+        <a class="nav-item nav-link px-0 ml-2" href="javascript:void(0)" (click)="toggleSidenav()">
+            <i class="ion ion-md-menu text-large align-middle"></i>
+        </a>
+    </div>
+
+    <!-- Navbar toggle -->
+    <button class="navbar-toggler" type="button" (click)="isExpanded = !isExpanded">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" [ngbCollapse]="!isExpanded">
+        <div class="navbar-nav align-items-lg-center">
+            <div class="nav-item"><a class="nav-link" routerLink="/main">{{'navbar.main' | translate}}</a></div>
+            <div class="nav-item"><a class="nav-link" routerLink="/main/games">{{'navbar.games' | translate}}</a></div>
+            <div class="nav-item"><a class="nav-link" routerLink="/main/reports">{{'navbar.reports' | translate}}</a></div>
+            <div class="nav-item"><a class="nav-link" routerLink="/main/account-settings">{{'navbar.settings' | translate}}</a></div>
+            <div class="nav-item"><a class="nav-link" routerLink="/main/billing">{{'navbar.billing' | translate}}</a></div>
+        </div>
+    </div>
+    <div class="navbar-balance-info">
+        <a href="javascript:void(0)" routerLink="/main/billing" class="text-theme"><i class="fab fa-ethereum text-theme"></i> 100</a>
+    </div>
+    <div ngbDropdown hoverDropdown>
+        <button type="button" class="btn bg-transparent border-transparent dropdown-toggle btn-sm" ngbDropdownToggle><img
+                src="assets/img/flags/16/{{currentLang}}.png"> {{currentLang}}
+        </button>
+        <div ngbDropdownMenu [class.dropdown-menu-right]="isRTL">
+            <a *ngFor="let lang of langs" class="dropdown-item" href="javascript:void(0)"
+               (click)="setLang(lang)"><img src="assets/img/flags/16/{{lang}}.png">
+                {{lang}}</a>
+        </div>
+    </div>
+    <div ngbDropdown [placement]="isRTL ? 'bottom-left' : 'bottom-right'" class="demo-navbar-user nav-item">
+        <a ngbDropdownToggle class="nav-link" href="javascript:void(0)">
+          <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+            <img src="assets/img/avatars/{{userInfo.avatar}}" alt class="d-block ui-w-30 rounded-circle">
+            <span class="px-1 mr-lg-2 ml-2 ml-lg-0 text-theme">{{userInfo.name}}</span>
+          </span>
+        </a>
+        <div ngbDropdownMenu [class.dropdown-menu-right]="!isRTL">
+            <a href="javascript:void(0)" class="dropdown-item" routerLink="/main/account-settings"><i
+                    class="ion ion-ios-person text-lightest"></i> &nbsp; {{'navbar.settings' | translate}}</a>
+            <div class="dropdown-divider"></div>
+            <a href="javascript:void(0)" class="dropdown-item" (click)="logout()"><i
+                    class="ion ion-ios-log-out text-danger"></i> &nbsp; {{'common.logout' | translate}}</a>
+        </div>
+    </div>
+
+</nav>

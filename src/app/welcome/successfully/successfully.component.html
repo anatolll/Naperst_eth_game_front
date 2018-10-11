@@ -1,0 +1,24 @@
+<div class="authentication-wrapper authentication-2 ui-bg-cover ui-bg-overlay-container px-4">
+    <div class="authentication-inner py-5" style="max-width: 50% !important;">
+        <div class="card text-center mb-3">
+            <div class="d-flex justify-content-center align-items-center pb-2 mb-4 pt-2 mt-4">
+                <div class="card-body" *ngIf="subscribe">
+                    <h4 class="card-title">{{'page.successfully.subscribe.title' | translate}}</h4>
+                    <p class="card-text">{{'page.successfully.subscribe.text' | translate}}</p>
+                    <a href="javascript:void(0)" class="btn btn-theme" routerLink="/">{{'pages.successfully.buttons.back' | translate}}</a>
+                </div>
+                <div class="card-body" *ngIf="contactus">
+                    <h4 class="card-title">{{'page.successfully.contactus.title' | translate}}</h4>
+                    <p class="card-text">{{'page.successfully.contactus.text'}}</p>
+                    <a href="javascript:void(0)" class="btn btn-theme" routerLink="/">{{'pages.successfully.buttons.back' | translate}}</a>
+                </div>
+                <div class="card-body" *ngIf="registration">
+                    <h4 class="card-title">{{'page.successfully.registration.title' | translate}}</h4>
+                    <p class="card-text">{{'page.successfully.registration.text'}}</p>
+                    <a href="javascript:void(0)" class="btn btn-secondary" routerLink="/">{{'pages.successfully.buttons.back' | translate}}</a>
+                    <a href="javascript:void(0)" class="btn btn-theme" routerLink="/sign-in">{{'pages.successfully.buttons.login' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<h4 class="font-weight-bold py-3 mb-4">
+    {{'pages.billing.header' | translate}}
+</h4>
+
+<div class="row">
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="fab fa-ethereum display-4 text-twitter"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.billing.widgets.total' | translate}}</div>
+                        <div class="text-large">100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="fab fa-ethereum display-4 text-success"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.billing.widgets.available' | translate}}</div>
+                        <div class="text-large">20</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="fab fa-ethereum display-4 text-warning"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.billing.widgets.hold' | translate}}</div>
+                        <div class="text-large">80</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="ion ion-md-more display-4"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.billing.widgets.payouts' | translate}}</div>
+                        <div class="text-large">3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="d-flex col-xl-12 align-items-stretch">
+        <ngb-tabset class="nav-tabs-top mb-4 w-100" #tabs>
+            <ngb-tab title="{{'pages.billing.tabs.add' | translate}}" id="add">
+                <ng-template ngbTabContent>
+                    <div class="card-body text-center">
+                        <div class="form-group">
+                            <label class="form-label">{{'pages.billing.labels.add' | translate}}</label>
+                            <input #contractaddress type="text" class="form-control text-center" readonly value="0x142459e5bB9599c634B3BB6772795EFEB214F268" placeholder="{{'pages.billing.placeholders.add' | translate}}">
+                            <small>{{'common.min' | translate}}: <i class="fab fa-ethereum"></i> 0.1</small>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-secondary" [ngxClipboard]="contractaddress" type="button" (click)="copy()">{{'pages.billing.buttons.copy' | translate}}</button>
+                        </div>
+                        <div class="form-group">
+                            <h4>{{'pages.billing.addhowtotitle' | translate}}</h4>
+                            <p>{{'pages.billing.addhowtotext' | translate}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="{{'pages.billing.tabs.request' | translate}}" id="request">
+                <ng-template ngbTabContent>
+                    <div class="card-body text-center">
+                        <form *ngIf="!requested" [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label class="form-label">{{'pages.billing.labels.request' | translate}}</label>
+                                <input type="text" class="form-control text-center" placeholder="0x0000000000000000000000000000000000000000" formControlName="address">
+                                <small>{{'common.min' | translate}}: <i class="fab fa-ethereum"></i> 0.1</small>
+                                <small
+                                        class="invalid-feedback"
+                                        *ngIf="form.get('address').invalid && form.get('address').touched"
+                                >
+                                    {{'pages.billing.errorfeedback' | translate}}
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success" type="submit" [disabled]="form.invalid">{{'pages.billing.buttons.request' | translate}}</button>
+                            </div>
+                            <div class="form-group">
+                                <h4>{{'pages.billing.requesthowtotitle' | translate}}</h4>
+                                <p>{{'pages.billing.requesthowtotext' | translate}}</p>
+                            </div>
+                        </form>
+                        <div *ngIf="requested" class="card text-center mb-3">
+                            <div class="d-flex justify-content-center align-items-center pb-2 mb-4 pt-2 mt-4">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{'pages.billing.requestsent.title' | translate}}</h4>
+                                    <p class="card-text">{{'pages.billing.requestsent.text' | translate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

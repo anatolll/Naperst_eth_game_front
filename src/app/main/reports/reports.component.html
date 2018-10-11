@@ -1,0 +1,132 @@
+<h4 class="font-weight-bold py-3 mb-4">
+    {{'pages.reports.header' | translate}}
+</h4>
+<div class="d-flex col-xl-12 align-items-stretch">
+    <ngb-tabset class="nav-tabs-top mb-4 w-100">
+        <ngb-tab title="{{'pages.reports.tabs.games' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="card-body">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-5 col-lg-3 mb-3 ml-auto">
+                                <input class="form-control" type='text' placeholder="{{'pages.main.filter' | translate}}"
+                                       (keyup)='updateFilter1($event)'>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <ngx-datatable #table1 style="min-width: 500px"
+                                           class="material"
+                                           [summaryRow]="true"
+                                           [summaryPosition]="'bottom'"
+                                           [summaryHeight]="'auto'"
+                                           [columns]="columns1"
+                                           [rows]="rows1"
+                                           [loadingIndicator]="loadingIndicator1"
+                                           [columnMode]="'force'"
+                                           [headerHeight]="43"
+                                           [footerHeight]="50"
+                                           [rowHeight]="'auto'"
+                                           [reorderable]="true"
+                                           [limit]="25">
+                            </ngx-datatable>
+                            <ng-template #etherTemplate let-row="row" let-value="value">
+                                <i class="fab fa-ethereum" [ngClass]="{'text-theme': value > 0, 'text-danger': value < 0}"> {{value}}</i>
+                            </ng-template>
+                            <ng-template #etherBlackTemplate let-row="row" let-value="value">
+                                <i class="fab fa-ethereum"> {{value}}</i>
+                            </ng-template>
+                            <ng-template #linkTemplate let-row="row" let-value="value">
+                                <a routerLink="/main/game/{{value}}">{{value}}</a>
+                            </ng-template>
+                            <ng-template #txTemplate let-row="row" let-value="value">
+                                <a target="_blank" href="https://etherscan.io/tx/{{value}}">{{value | slice:0:3}}...{{value | slice:-3}}</a>
+                            </ng-template>
+                            <ng-template #txIdTemplate let-row="row" let-value="value">
+                                <a target="_blank" href="https://etherscan.io/tx/{{row.tx}}">{{value}}</a>
+                            </ng-template>
+                            <ng-template #statusTemplate let-row="row" let-value="value">
+                                <span class="badge badge-{{value == 0 ? 'warning' : value == 1 ? 'success' : 'secondary'}}">
+                                    {{value == 0 ? 'Open' : value == 1 ? 'Active' : 'Finished'}}
+                                </span>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="{{'pages.reports.tabs.adds' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="card-body">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-5 col-lg-3 mb-3 ml-auto">
+                                <input class="form-control" type='text' placeholder="{{'pages.main.filter' | translate}}"
+                                       (keyup)='updateFilter2($event)'>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <ngx-datatable #table2 style="min-width: 500px"
+                                           class="material"
+                                           [summaryRow]="true"
+                                           [summaryPosition]="'bottom'"
+                                           [summaryHeight]="'auto'"
+                                           [columns]="columns2"
+                                           [rows]="rows2"
+                                           [loadingIndicator]="loadingIndicator2"
+                                           [columnMode]="'force'"
+                                           [headerHeight]="43"
+                                           [footerHeight]="'auto'"
+                                           [rowHeight]="'auto'"
+                                           [reorderable]="true"
+                                           [limit]="25">
+                            </ngx-datatable>
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <button class="btn btn-theme right" routerLink="/main/billing/add">Add Funds</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="{{'pages.reports.tabs.refunds' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="card-body">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-5 col-lg-3 mb-3 ml-auto">
+                                <input class="form-control" type='text' placeholder="{{'pages.main.filter' | translate}}"
+                                       (keyup)='updateFilter3($event)'>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <ngx-datatable #table3 style="min-width: 500px"
+                                           class="material"
+                                           [summaryRow]="true"
+                                           [summaryPosition]="'bottom'"
+                                           [summaryHeight]="'auto'"
+                                           [columns]="columns3"
+                                           [rows]="rows3"
+                                           [loadingIndicator]="loadingIndicator3"
+                                           [columnMode]="'force'"
+                                           [headerHeight]="43"
+                                           [footerHeight]="'auto'"
+                                           [rowHeight]="'auto'"
+                                           [reorderable]="true"
+                                           [limit]="25">
+                            </ngx-datatable>
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <button class="btn btn-theme right" routerLink="/main/billing/request">Request Payout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+</div>

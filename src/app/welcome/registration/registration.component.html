@@ -1,0 +1,121 @@
+<div class="authentication-wrapper authentication-2 ui-bg-cover ui-bg-overlay-container px-4">
+    <div class="authentication-inner py-5">
+
+        <div class="card">
+            <div class="p-4 px-sm-5 pt-sm-5">
+                <!-- Logo -->
+                <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+                    <img src="assets/img/logo_400x400.png" class="logo" title="Birofit" alt="Birofit">
+                </div>
+                <!-- / Logo -->
+
+                <h5 class="text-center text-muted font-weight-normal mb-4">Create an Account</h5>
+
+                <!-- Form -->
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="form-label">Your name</label>
+                        <input name="name" type="text" class="form-control" formControlName="name">
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('name').invalid && form.get('name').touched"
+                        >
+                            Min length 3 characters
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your username</label>
+                        <input name="text" type="text" class="form-control" formControlName="username">
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('username').invalid && form.get('username').touched"
+                        >
+                            Min length 3 characters
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your email</label>
+                        <input name="email" type="text" class="form-control" formControlName="email">
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('email').invalid && form.get('email').touched"
+                        >
+                            Email incorrect
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                formControlName="password"
+                                (change)="onChange()"
+                        >
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('password').invalid && form.get('password').touched"
+                        >
+                            Your password must be 6-15 characters long, contain letters and numbers,
+                            and must not contain spaces, special characters, or emoji.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">RePassword</label>
+                        <input
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                formControlName="repassword"
+                                (change)="onChange()"
+                        >
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('repassword').invalid && form.get('repassword').touched"
+                        >
+                            Passwords missmatch
+                        </small>
+                    </div>
+                    <div class="text-light small mt-4">
+                        <label class="custom-control custom-checkbox m-0">
+                            <input type="checkbox" class="custom-control-input" name="accept" formControlName="checkbox">
+                            <span class="custom-control-label">
+                                I would like to receive occasional email updates and special offers for
+                                Birofit products, services, and events.
+                            </span>
+                            <small
+                                    class="invalid-feedback"
+                                    *ngIf="form.get('checkbox').invalid"
+                            >
+                                Required
+                            </small>
+                        </label>
+                    </div>
+                    <div class="btn-group mt-4 d-flex" role="group">
+                        <button type="button" class="btn btn-default w-100" routerLink="/">Cancel</button>
+                        <button
+                                type="submit"
+                                class="btn btn-theme w-100"
+                                [disabled]="form.invalid"
+                        >
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="text-light small mt-4">
+                        By clicking "Sign Up", you agree to our
+                        <a href="javascript:void(0)" routerLink="/terms-of-use">terms of service and privacy policy</a>.
+                        We’ll occasionally send you account related emails.
+                    </div>
+                </form>
+                <!-- / Form -->
+
+            </div>
+            <div class="card-footer py-3 px-4 px-sm-5">
+                <div class="text-center text-muted">
+                    Already have an account? <a href="javascript:void(0)" routerLink="/sign-in">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,302 @@
+<div _ngcontent-c8="" class="home-wrapper ui-bg-cover ui-bg-overlay-container px-4"
+     style="background: url('assets/img/bg/bg.png') repeat; background-attachment: fixed;">
+    <div class="container py-5 px-3">
+        <div class="container py-5 px-3">
+            <div class="row pt-4">
+                <div class="w-100">
+
+                    <div class="col-md-11 col-lg-8 col-xl-7 text-center mx-auto mb-5 pt-lg-5">
+                        <h1 class="display-3 font-secondary font-weight-bolder mb-4">{{'common.projectname' | translate
+                            | uppercase}}</h1>
+                        <div class="lead opacity-75">
+                            {{'pages.home.description' | translate}}
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <a href="#" class="btn btn-xl btn-theme" routerLink="/sign-up">{{'pages.home.tryit' |
+                            translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5" id="howtouse">
+    <div class="landing-block container px-3">
+
+        <h1 class="display-4 font-secondary text-center font-weight-semibold">
+            How It Works
+        </h1>
+        <div class="lead text-muted mb-5 text-center">
+            Lorem ipsum dolor sit amet.
+        </div>
+
+        <hr class="landing-separator border-success mx-auto mt-5 mb-4">
+
+        <div class="row text-center">
+            <div class="col-md-4 my-4">
+                <div class="text-success mx-auto mb-4">
+          <span class="ui-icon font-weight-bolder">
+          <i class="ion ion-md-aperture"></i>
+        </span>
+                </div>
+                <h5>Dapibus ac facilisis in</h5>
+                <div class="text-muted small">
+                    Lorem ipsum dolor sit amet, ius virtute suscipit te. Ius prima euismod consequat eu, cu quo alii
+                    scriptorem
+                </div>
+            </div>
+            <div class="col-md-4 my-4">
+                <div class="text-success mx-auto mb-4">
+          <span class="ui-icon font-weight-bolder">
+          <i class="ion ion-md-brush"></i>
+        </span>
+                </div>
+                <h5>Cras justo odio</h5>
+                <div class="text-muted small">
+                    Etiam vivendo eu sea, purto ponderum mediocritatem at pro. Ex tantas invenire dissentiunt mea.
+                </div>
+            </div>
+            <div class="col-md-4 my-4">
+                <div class="text-success mx-auto mb-4">
+          <span class="ui-icon font-weight-bolder">
+          <i class="ion ion-md-cloud-upload"></i>
+        </span>
+                </div>
+                <h5>Porta ac consectetur ac</h5>
+                <div class="text-muted small">
+                    Iuvaret deleniti vulputate nec ne, id vix lucilius legendos deseruisse, harum honestatis cum te.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="landing-block bg-lighter overflow-hidden" id="contract">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+
+            <div class="col-lg-5 col-xl-5">
+                <div class="ui-presentation-right ui-window float-right rounded">
+                    <div class="window-content">
+                        <img src="assets/img/app.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-5 text-lg-left text-center mx-auto mt-5 mt-lg-0">
+                <h5 class="mb-2">Vim ut tation philosophia</h5>
+                <div class="text-muted small">
+                    Vim ut tation philosophia. Qui et modo abhorreant, populo timeam disputando ut vel.
+                </div>
+
+                <h5 class="mt-5 mb-2">Qui et modo abhorreant</h5>
+                <div class="text-muted small">
+                    Cu soleat possit sit. Vocent iisque omnesque eos id. Id sed natum debet graeco, pro te possim
+                    scripta vituperata.
+                </div>
+
+                <h5 class="mt-5 mb-2">Ad vim duis aperiri intellegat</h5>
+                <div class="text-muted small">
+                    Pro rebum nominavi an. His et enim justo dicunt. Agam mnesarchum concludaturque per ea, sea an dicam
+                    dolores repudiare.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="overflow-hidden mt-5 pt-5" id="contactus">
+    <div class="container">
+        <h1 class="display-4 font-secondary text-center font-weight-semibold">
+            Contact Us
+        </h1>
+        <div class="lead text-muted mb-5 text-center">
+            Feel free to ask any questions
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="label">Subject</label>
+                <input class="form-control" placeholder="Subject" formControlName="subject">
+                <small class="form-text invalid-feedback" *ngIf="form.get('subject').invalid && form.get('subject').touched">
+                    {{'contactus.subjecterror' | translate}}
+                </small>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="label">Name</label>
+                        <input class="form-control" placeholder="Name" formControlName="name">
+                        <small class="form-text invalid-feedback" *ngIf="form.get('name').invalid && form.get('name').touched">
+                            {{'contactus.nameerror' | translate}}
+                        </small>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="label">Email</label>
+                        <input class="form-control" placeholder="Email" formControlName="email">
+                        <small class="form-text invalid-feedback" *ngIf="form.get('email').invalid && form.get('email').touched">
+                            {{'contactus.emailerror' | translate}}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" placeholder="Message" style="resize: none;" formControlName="message"></textarea>
+                <small class="form-text invalid-feedback" *ngIf="form.get('message').invalid && form.get('message').touched">
+                    {{'contactus.messageerror' | translate}}
+                </small>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label class="custom-control custom-checkbox m-0">
+                            <input type="checkbox" class="custom-control-input" formControlName="agree">
+                            <span class="custom-control-label">I agree with the {{'common.projectname' | translate}} <a
+                                    routerLink="/privacy-policy">Privacy Policy</a></span>
+                        </label>
+                        <small class="form-text invalid-feedback" *ngIf="form.get('agree').invalid && form.get('agree').touched">
+                            {{'contactus.agreeerror' | translate}}
+                        </small>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-theme btn-block" [disabled]="form.invalid">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="landing-block bg-lighter overflow-hidden my-5" id="faq">
+    <div class="container py-5">
+        <h1 class="display-4 font-secondary text-center font-weight-semibold">
+            FAQ
+        </h1>
+        <div class="lead text-muted mb-5 text-center">
+            Frequently Asked Questions
+        </div>
+        <ngb-accordion [closeOthers]="true" activeIds="accordion2-static-1" class="ngb-accordion-with-icon">
+            <ngb-panel id="accordion2-static-1">
+                <ng-template ngbPanelTitle>
+                    <span class="text-dark">Collapsible Group Item #1</span>
+                    <div class="collapse-icon"></div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+                    keffiyeh helvetica,
+                    craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                    lomo. Leggings
+                    occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus
+                    labore sustainable VHS.
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="accordion2-static-2">
+                <ng-template ngbPanelTitle>
+                    <span class="text-dark">Collapsible Group Item #2</span>
+                    <div class="collapse-icon"></div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+                    keffiyeh helvetica,
+                    craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                    lomo. Leggings
+                    occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus
+                    labore sustainable VHS.
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="accordion2-static-3">
+                <ng-template ngbPanelTitle>
+                    <span class="text-dark">Collapsible Group Item #3</span>
+                    <div class="collapse-icon"></div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia
+                    aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+                    keffiyeh helvetica,
+                    craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+                    lomo. Leggings
+                    occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus
+                    labore sustainable VHS.
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="accordion2-static-4">
+                <ng-template ngbPanelTitle>
+                    <span class="text-dark">Collapsible Group Item #4</span>
+                    <div class="collapse-icon"></div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores autem, culpa cum
+                    cumque eius et incidunt laborum magni maiores nemo nesciunt nulla officia provident repudiandae
+                    tempore temporibus totam vel vitae, voluptate? Ab aut eaque eveniet quasi reiciendis sequi tempore
+                    vel velit. Doloribus pariatur quibusdam sint totam? Architecto laborum nobis quas voluptatibus! A
+                    accusamus accusantium amet aspernatur, consectetur corporis cupiditate deleniti deserunt distinctio
+                    dolorum eveniet exercitationem, expedita explicabo fugiat id illum libero magni molestias natus
+                    nesciunt nihil nostrum officia perspiciatis quas, quasi quos rem reprehenderit rerum sed sit sunt
+                    totam unde voluptatem! Aut corporis distinctio quidem repudiandae suscipit. Ab architecto at culpa
+                    debitis deleniti deserunt dolore dolores ducimus earum eius eligendi eos facere harum in incidunt
+                    laudantium magni nam nulla quaerat ratione recusandae sequi, sint, tempora ut voluptatem. Ab alias,
+                    aspernatur cum dolore doloribus ea, fugit id iusto modi mollitia necessitatibus neque nihil, nulla
+                    obcaecati optio quas ratione tempore velit veritatis voluptatum. Atque dolor ducimus ea esse
+                    incidunt ipsam laudantium molestias repudiandae tempora voluptas. Aliquam aspernatur atque culpa
+                    doloremque dolores doloribus et, facere inventore magnam maxime, minus nihil numquam, obcaecati
+                    officiis quam quisquam recusandae reiciendis repellendus tenetur vel. Culpa debitis delectus et id,
+                    iste maxime nam quaerat qui recusandae repellendus sequi soluta? A aliquam assumenda beatae
+                    consectetur consequuntur corporis cum cupiditate dicta dignissimos dolor dolore dolorum fuga fugit
+                    impedit ipsum iure magnam molestiae neque nisi nulla numquam, officia, optio pariatur praesentium
+                    quaerat quasi quibusdam quo quod quos recusandae sapiente sint sunt tempore temporibus veritatis
+                    voluptas voluptatem? Dolores dolorum ducimus earum eligendi esse excepturi fugit, necessitatibus,
+                    obcaecati pariatur quae quasi, quibusdam quo quod quos ratione repellendus saepe sapiente sed sequi
+                    vel? Aliquam asperiores corporis deserunt dicta dolores earum facere fuga, fugiat hic ipsa iure
+                    laborum libero magnam molestiae molestias necessitatibus nostrum odit optio pariatur perferendis
+                    provident quod ratione recusandae, reiciendis repellendus sunt suscipit vero. Accusamus commodi
+                    doloremque ea eos et eveniet in minus modi molestias natus, necessitatibus possimus provident quia
+                    recusandae, repudiandae veniam, voluptatem! Aspernatur corporis dolore doloremque ducimus eligendi
+                    error excepturi fuga id in incidunt inventore ipsa libero magnam maiores maxime officia officiis
+                    pariatur provident quasi quos ratione, saepe similique totam velit voluptatem! Consequatur excepturi
+                    hic inventore, molestias praesentium quae recusandae ullam vel! A beatae delectus deserunt dolor
+                    dolore, ea in neque rem rerum voluptatibus! Beatae, dicta minus. Ad assumenda eligendi ipsam itaque
+                    libero, nostrum odio rem reprehenderit temporibus voluptate. Aperiam beatae consectetur corporis
+                    cumque cupiditate deserunt eum fugit harum modi necessitatibus nemo nobis optio, quidem quod
+                    temporibus velit vitae! Animi at, atque autem culpa id illo iure libero nam, odit omnis optio
+                    quaerat quam quasi qui repellendus reprehenderit tempore vero voluptatum! Consectetur culpa dolores
+                    ea maiores minima nulla unde, vitae? Culpa, deserunt eos explicabo nisi numquam tempore. Aspernatur
+                    commodi, cumque delectus impedit magnam, magni minus modi necessitatibus nihil perferendis qui quis
+                    similique totam vitae voluptatibus? Corporis dolorum error mollitia obcaecati quaerat quisquam rem,
+                    sunt? Animi excepturi maiores minus natus? Consectetur dolorem dolorum harum voluptate? Dolorem ex
+                    harum laboriosam, neque officia, officiis quidem quos sunt temporibus vero vitae, voluptatibus
+                    voluptatum.
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="accordion2-static-5">
+                <ng-template ngbPanelTitle>
+                    <span class="text-dark">Collapsible Group Item #5</span>
+                    <div class="collapse-icon"></div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquam aperiam aut debitis,
+                    deserunt dolor facilis id inventore laborum nostrum placeat provident quos, recusandae sed
+                    temporibus unde velit veniam, vero vitae. Ab doloremque facere ipsam ipsum nobis repudiandae
+                    tenetur, unde vel voluptatem voluptatum. Beatae, ex labore? A accusamus amet animi debitis dicta
+                    dolore dolorum eaque eum illo magni, nemo neque non possimus quibusdam repellendus sed similique
+                    totam velit veniam voluptate. Adipisci eius hic incidunt iure non odit suscipit veritatis? Alias
+                    amet aut debitis dolorem doloremque eius ipsa itaque labore magnam, nulla numquam perspiciatis,
+                    quasi quis quos veritatis voluptates voluptatibus?
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div>

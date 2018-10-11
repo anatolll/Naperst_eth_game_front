@@ -1,0 +1,87 @@
+<h4 class="media align-items-center font-weight-bold py-3 mb-4">
+    <img src="assets/img/avatars/{{userInfo.avatar}}" alt="" class="ui-w-50 rounded-circle">
+    <div class="media-body ml-3">
+        {{'pages.main.welcome' | translate}} {{userInfo.name}}!
+        <div class="text-muted text-tiny mt-1">
+            <small class="font-weight-normal">{{date}}</small>
+        </div>
+    </div>
+</h4>
+
+<hr class="container-m--x mt-0 mb-4">
+
+<div class="row">
+    <div class="d-flex col-xl-8 align-items-stretch">
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-12">
+            <div class="row">
+                <div class="col-sm-6 col-md-5 col-lg-3 mb-3 text-left">
+                    {{'pages.main.allopengames' | translate}}
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-3 mb-3 ml-auto">
+                    <input class="form-control" type='text' placeholder="{{'pages.main.filter' | translate}}"
+                           (keyup)='updateFilter($event)'>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <ngx-datatable #table
+                               style="min-width: 500px"
+                               [rows]="rows"
+                               [loadingIndicator]="loadingIndicator"
+                               [columnMode]="'force'"
+                               [headerHeight]="43"
+                               [footerHeight]="'auto'"
+                               [rowHeight]="'auto'"
+                               [reorderable]="true"
+                               [limit]="10">
+                    <ngx-datatable-column name="Id">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <a href="javascript:void(0)" routerLink="/main/game/{{value}}">{{value}}</a>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Created"></ngx-datatable-column>
+                    <ngx-datatable-column name="Fee">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                             <i class="fab fa-ethereum"></i> {{value}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Players"></ngx-datatable-column>
+                    <ngx-datatable-column name="Status">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <span class="badge" [ngClass]="'badge-' + (value == 2 ? 'secondary' : value == 1 ? 'success' : 'warning')">{{value == 2 ? 'Finished' : value == 1 ? 'Active' : 'Open'}}</span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Action">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <a
+                                    class="btn btn-sm btn-icon btn-theme"
+                                    routerLink="/main/game/{{row.id}}"
+                            >
+                                {{'pages.games.buttons.play' | translate}}
+                            </a>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 align-items-stretch">
+        <!-- Feeds -->
+        <div class="card w-100 mb-4">
+            <h6 class="card-header">{{'pages.main.lastwinners.title' | translate}}</h6>
+            <div class="card-body">
+                <div *ngFor="let winner of lastWinners" class="media pb-1 mb-3">
+                    <div class="ui-feed-icon-container">
+                        <img src="assets/img/avatars/{{winner.avatar}}" class="ui-w-40 rounded-circle" alt>
+                    </div>
+                    <div class="media-body align-self-center ml-3">
+                        {{winner.username}} won <i class="fab fa-ethereum"></i> {{winner.profit}} in game <a routerLink="/main/game/{{winner.gameid}}">{{winner.gameid}}</a>
+                        <div class="text-muted small">{{winner.ago}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feeds -->
+    </div>
+</div>

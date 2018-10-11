@@ -1,0 +1,38 @@
+<nav class="landing-navbar navbar navbar-expand-lg bg-navbar-theme fixed-top">
+    <div class="container-fluid px-3">
+        <a href="javascript:void(0)"
+           class="navbar-brand text-big font-weight-bolder line-height-1 text-expanded py-3" routerLink="/"><img src="assets/img/Logo.png" title="Birofit" alt="Birofit"> </a>
+
+        <button class="navbar-toggler" type="button" (click)="isExpanded = !isExpanded">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" [ngbCollapse]="!isExpanded">
+            <div class="navbar-nav align-items-lg-center ml-lg-4">
+                <a class="anchor-link nav-item nav-link" href="javascript:void(0)" routerLink="/" fragment="howtouse">How It works</a>
+                <a class="anchor-link nav-item nav-link" href="javascript:void(0)" routerLink="/" fragment="faq">FAQ</a>
+                <a class="anchor-link nav-item nav-link" href="javascript:void(0)" routerLink="/" fragment="contactus">Contact Us</a>
+                <a class="anchor-link nav-item nav-link" href="javascript:void(0)" routerLink="/" fragment="subscribe">Subscribe</a>
+            </div>
+            <div class="navbar-nav align-items-lg-center ml-auto">
+                <div ngbDropdown hoverDropdown>
+                    <button type="button" class="btn bg-transparent dropdown-toggle btn-sm" ngbDropdownToggle><img
+                            src="assets/img/flags/16/{{currentLang}}.png"> {{currentLang}}
+                    </button>
+                    <div ngbDropdownMenu [class.dropdown-menu-right]="true">
+                        <a *ngFor="let lang of langs" class="dropdown-item" href="javascript:void(0)"
+                           (click)="setLang(lang)"><img src="assets/img/flags/16/{{lang}}.png">
+                            {{lang}}</a>
+                    </div>
+                </div>
+                <div class="nav-item py-2 py-lg-0 ml-lg-4">
+                    <a href="javascript:void(0)" class="btn btn-outline-theme btn-round borderless"
+                       routerLink="/sign-in">{{'common.signin' | translate}}</a>
+                </div>
+                <div class="nav-item py-2 py-lg-0 ml-lg-1">
+                    <a href="javascript:void(0)" class="btn btn-theme btn-round" routerLink="/sign-up">{{'common.signup' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

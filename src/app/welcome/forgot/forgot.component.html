@@ -1,0 +1,54 @@
+<div class="authentication-wrapper authentication-2 px-4">
+    <div class="authentication-inner py-5">
+
+        <!-- Form -->
+        <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="p-4 p-sm-5">
+
+                <!-- Logo -->
+                <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+                    <img src="assets/img/logo_400x400.png" class="logo" title="Birofit" alt="Birofit">
+                </div>
+                <!-- / Logo -->
+
+                <h5 class="text-center text-muted font-weight-normal mb-4">Reset Your Password</h5>
+
+                <hr class="mt-0 mb-4">
+
+                <p>
+                    Enter your email address and we will send you a link to reset your password.
+                </p>
+
+                <div class="form-group">
+                    <input
+                            name="email"
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter your email address"
+                            formControlName="email"
+                    >
+                    <small
+                            class="invalid-feedback"
+                            *ngIf="form.get('email').invalid && form.get('email').touched"
+                    >
+                        Email incorrect
+                    </small>
+                </div>
+
+                <div class="btn-group d-flex" role="group">
+                    <button type="button" class="btn btn-default w-100" routerLink="/sign-in">Back</button>
+                    <button
+                            type="submit"
+                            class="btn btn-theme w-100"
+                            [disabled]="form.invalid"
+                    >
+                        Send
+                    </button>
+                </div>
+
+            </div>
+        </form>
+        <!-- / Form -->
+
+    </div>
+</div>

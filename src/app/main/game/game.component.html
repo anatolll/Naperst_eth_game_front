@@ -1,0 +1,182 @@
+<h4 class="font-weight-bold py-3 mb-4 w-100">
+    {{'pages.game.header' | translate}} <span class="badge badge-default">{{uid}}</span>
+    <div class="text-muted text-tiny mt-1">
+        <small class="font-weight-normal">{{'pages.game.createdby' | translate}} System</small>
+    </div>
+</h4>
+<div class="row">
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="lnr lnr-star display-4" [ngClass]="{'text-secondary': game.status == 'Done', 'text-success': game.status == 'Active', 'text-warning': game.status == 'Open'}"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.game.status' | translate}}</div>
+                        <div class="text-big">{{game.status}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="lnr lnr-clock display-4 text-warning"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.game.created' | translate}}</div>
+                        <div class="text-big">{{game.created}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="lnr lnr-clock display-4 text-success"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.game.started' | translate}}</div>
+                        <div class="text-big">{{game.status != 'Open' ? game.started_date : '—'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="lnr lnr-clock display-4 text-secondary"></div>
+                    <div class="ml-3">
+                        <div class="text-muted small">{{'pages.game.finished' | translate}}</div>
+                        <div class="text-big">{{game.status == 'Done' ? game.finished_date : '—'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row my-2">
+    <div class="d-flex col-xl-6 align-items-stretch">
+        <div class="card mb-4 w-100">
+            <div class="card-header">
+                {{'pages.game.players' | translate}}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small text-center">{{'pages.game.want' | translate}}</div>
+                        <div class="text-large font-weight-semibold text-center">{{game.min_players_count}}</div>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small text-center">{{'pages.game.current' | translate}}</div>
+                        <div class="text-large font-weight-semibold text-center">{{game.current_players_count}}</div>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small text-center">{{'pages.game.need' | translate}}</div>
+                        <div class="text-large font-weight-semibold text-center">{{game.need_players_count}}</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+            <div class="table-responsive">
+                <table class="table card-table">
+                    <thead>
+                    <tr>
+                        <th>Joined</th>
+                        <th>Player</th>
+                        <th>Paid</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngIf="game.players.length == 0"><td colspan="3" class="text-center">{{'pages.game.noplayers' | translate}}</td></tr>
+                    <tr *ngFor="let row of game.players">
+                        <td class="py-3">
+                            {{row.date}}
+                        </td>
+                        <td class="py-3">
+                            {{row.username}} <i class="ion ion-ios-star text-success" *ngIf="game.status == 'Done' && row.uid == game.winner"></i>
+                        </td>
+                        <td class="py-3"><i class="fab fa-ethereum"></i> {{game.fee}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex col-xl-6 align-items-stretch">
+        <div class="card mb-4 w-100">
+            <div class="card-header">
+                {{'pages.game.information' | translate}}
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small">{{'pages.game.bank' | translate}}</div>
+                        <div class="text-large font-weight-semibold"><i class="fab fa-ethereum"></i> {{game.bank}}</div>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small">{{'pages.game.fee' | translate}}</div>
+                        <div class="text-large font-weight-semibold"><i class="fab fa-ethereum"></i> {{game.fee}}</div>
+                    </div>
+                    <div class="col-md-4 pb-4">
+                        <div class="text-muted small">{{'pages.game.chance' | translate}}</div>
+                        <div class="text-large font-weight-semibold">{{game.chance}}%</div>
+                    </div>
+                </div>
+                <hr class="container-m--x mt-0 mb-4">
+                <div class="form-group" *ngIf="game.status == 'Open'">
+                    <label class="form-label">{{'pages.game.labels.invite' | translate}}</label>
+                    <div class="input-group">
+                        <input #contractaddress type="text" readonly class="form-control text-center" value="https://birofit.com/main/game/{{uid}}">
+                        <span class="input-group-append">
+                            <button class="btn btn-default" [ngxClipboard]="contractaddress">{{'pages.game.buttons.copy' | translate}}</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-right" *ngIf="game.status == 'Done'">
+                    <div class="fb-like" [attr.data-href]="url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                    <br/><br/>
+                    <a href="https://twitter.com/share" [attr.data-text]="text" [attr.data-url]="url" class="twitter-share-button"></a>
+                </div>
+                <div class="text-center">
+                    <button
+                            class="btn btn-success btn-xl"
+                            *ngIf="game.status == 'Open' && !joined && balance >= game.fee"
+                            mwlConfirmationPopover
+                            popoverTitle="Are you sure?"
+                            popoverMessage="Join in this game?"
+                            [placement]="'bottom'"
+                            (confirm)="confirm()"
+                            (cancel)="cancel()"
+                    >
+                        {{'pages.game.buttons.join' | translate}}
+                    </button>
+                    <button
+                            class="btn btn-success btn-xl"
+                            *ngIf="game.status == 'Open' && !joined && balance < game.fee"
+                            mwlConfirmationPopover
+                            popoverTitle="Not enough balance?"
+                            popoverMessage="Show add refunds page?"
+                            [placement]="'bottom'"
+                            (confirm)="go()"
+                            (cancel)="cancel()"
+                    >
+                        {{'pages.game.buttons.join' | translate}}
+                    </button>
+                    <h4 *ngIf="joined">{{'pages.game.joinedtext' | translate}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="authentication-wrapper authentication-2 ui-bg-cover ui-bg-overlay-container px-4">
+
+    <div class="authentication-inner py-5">
+
+        <div class="card">
+            <div class="p-4 p-sm-5">
+                <!-- Logo -->
+                <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+                    <img src="assets/img/logo_400x400.png" class="logo" title="Birofit" alt="Birofit">
+                </div>
+                <!-- / Logo -->
+
+                <h5 class="text-center text-muted font-weight-normal mb-4">Login to Your Account</h5>
+
+                <!-- Form -->
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input name="email" type="text" class="form-control" formControlName="email">
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('email').invalid && form.get('email').touched"
+                        >
+                            Email incorrect
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label d-flex justify-content-between align-items-end">
+                            <div>Password</div>
+                            <a href="javascript:void(0)" class="d-block small" routerLink="/password-reset">Forgot password?</a>
+                        </label>
+                        <input name="password" type="password" class="form-control" formControlName="password">
+                        <small
+                                class="invalid-feedback"
+                                *ngIf="form.get('password').invalid && form.get('password').touched"
+                        >
+                            Your password must be 6-15 characters long, contain letters and numbers,
+                            and must not contain spaces, special characters, or emoji.
+                        </small>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center m-0">
+                        <button type="button" class="btn btn-default w-100" routerLink="/">Cancel</button>
+                        <button
+                                type="submit"
+                                class="btn btn-theme w-100"
+                                [disabled]="form.invalid"
+                        >
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                <!-- / Form -->
+
+            </div>
+            <div class="card-footer py-3 px-4 px-sm-5">
+                <div class="text-center text-muted">
+                    Don't have an account yet? <a href="javascript:void(0)" routerLink="/sign-up">Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

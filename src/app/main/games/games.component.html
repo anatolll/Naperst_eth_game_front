@@ -1,0 +1,45 @@
+<h4 class="font-weight-bold py-3 mb-4">
+    {{'pages.games.header' | translate}}
+</h4>
+<div class="d-flex col-xl-12 align-items-stretch">
+    <div class="col-sm-12 col-md-12 col-lg-12 mb-12">
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-3 mb-3 ml-auto">
+                <input class="form-control" type='text' placeholder="{{'pages.main.filter' | translate}}"
+                       (keyup)='updateFilter($event)'>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <ngx-datatable #table style="min-width: 500px"
+                           class="bootstrap"
+                           [summaryRow]="true"
+                           [summaryPosition]="'bottom'"
+                           [summaryHeight]="'auto'"
+                           [rows]="rows"
+                           [columns]="columns"
+                           [loadingIndicator]="loadingIndicator"
+                           [columnMode]="'force'"
+                           [headerHeight]="43"
+                           [footerHeight]="'auto'"
+                           [rowHeight]="'auto'"
+                           [reorderable]="true"
+                           [limit]="25">
+            </ngx-datatable>
+            <ng-template #etherTemplate let-row="row" let-value="value">
+                <i class="fab fa-ethereum" [ngClass]="{'text-theme': value > 0, 'text-danger': value < 0}"> {{value}}</i>
+            </ng-template>
+            <ng-template #etherBlackTemplate let-row="row" let-value="value">
+                <i class="fab fa-ethereum"> {{value}}</i>
+            </ng-template>
+            <ng-template #linkTemplate let-row="row" let-value="value">
+                <a routerLink="/main/game/{{value}}">{{value}}</a>
+            </ng-template>
+            <ng-template #statusTemplate let-row="row" let-value="value">
+                <span class="badge badge-{{value == 0 ? 'warning' : value == 1 ? 'success' : 'secondary'}}">
+                    {{value == 0 ? 'Open' : value == 1 ? 'Active' : 'Finished'}}
+                </span>
+            </ng-template>
+        </div>
+    </div>
+</div>

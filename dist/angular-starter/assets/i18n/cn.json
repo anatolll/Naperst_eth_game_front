@@ -1,0 +1,48 @@
+{
+  "common": {
+    "projectname": "Birofit",
+    "signin": "签到",
+    "signup": "注册",
+    "logout": "登出"
+  },
+  "navbar": {
+    "main": "主要",
+    "settings": "设置",
+    "reports": "报告"
+  },
+  "pages": {
+    "main": {
+      "welcome": "欢迎回来，",
+      "filter": "过滤行...",
+      "earned": "本月获得",
+      "workinghours": "工作时间",
+      "spent": "这个月花了",
+      "tasks": "任务",
+      "completed": "本月完成",
+      "projects": "项目",
+      "done": "本月完成"
+    },
+    "settings": {
+      "header": "帐号设定",
+      "tabs": {
+        "general": "一般",
+        "password": "更改密码"
+      },
+      "buttons": {
+        "upload": "上传新照片",
+        "reset": "重启",
+        "save": "保存更改",
+        "cancel": "取消"
+      },
+      "labels": {
+        "allowed": "允许使用JPG，GIF或PNG。 最大尺寸为800K",
+        "email": "电子邮件",
+        "username": "用户名",
+        "name": "名称",
+        "currentpassword": "名称",
+        "newpassword": "新密码",
+        "repassword": "重复新密码"
+      }
+    }
+  }
+}

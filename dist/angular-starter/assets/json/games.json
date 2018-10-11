@@ -1,0 +1,57 @@
+[
+  {
+    "id": "jgbi08",
+    "created": "2018-07-07 14:56:27",
+    "players": "8/4",
+    "status": 0,
+    "fee": 5,
+    "bank": 34,
+    "hold": 5,
+    "profit": 0,
+    "winner": "—"
+  },
+  {
+    "id": "jNg96h",
+    "created": "2018-07-07 13:34:32",
+    "players": "3/3",
+    "status": 1,
+    "fee": 10,
+    "bank": 25.5,
+    "hold": 10,
+    "profit": 0,
+    "winner": "—"
+  },
+  {
+    "id": "Nbv6tf",
+    "created": "2018-07-07 12:16:07",
+    "players": "12/12",
+    "status": 2,
+    "fee": 1,
+    "bank": 10.2,
+    "hold": 0,
+    "profit": 9.2,
+    "winner": "nMaxwell"
+  },
+  {
+    "id": "Mlk6gF",
+    "created": "2018-07-07 12:05:54",
+    "players": "4/4",
+    "status": 2,
+    "fee": 50,
+    "bank": 170,
+    "hold": 0,
+    "profit": -50,
+    "winner": "kVodonyan"
+  },
+  {
+    "id": "GfDe4r",
+    "created": "2018-07-07 10:52:23",
+    "players": "5/5",
+    "status": 2,
+    "fee": 25,
+    "bank": 106.25,
+    "hold": 0,
+    "profit": -25,
+    "winner": "Artur"
+  }
+]
